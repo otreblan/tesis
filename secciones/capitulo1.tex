@@ -1,0 +1,77 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\chapter{REVISIÓN CRÍTICA DE LA LITERATURA}
+
+\citet{mathew2021docvqa} describen DocVQA,
+un dataset de preguntas y respuestas sobre documentos escaneados con OCR.
+Está conformado por 50000 preguntas y 12767 imágenes de documentos de diferentes épocas.
+Además, el dataset tiene diferentes tipos de documentos:
+manuscritos, impresos, escritos con máquinas de escribir y digitales.
+Como también diferentes tipos de preguntas:
+manuscrito, forma, diseño de página, tabla, texto, fotografía, figura y binario.
+Al final, este dataset fue usado para entrenar dos modelos:
+LoRRa \cite{anderson2018bottomup} y M4C \cite{devlin2019bert}.
+
+Según \citet{touvron2023llama} LLaMa es una colección de modelos de lenguaje creada por Meta.
+Los datos de entrenamiento usados son de libre acceso.
+Además los modelos han sido liberados al público para fines académicos,
+sin embargo el acceso no es completamente libre debido a que es necesario pasar por un proceso de aprobación.
+
+Según \citet{workshop2023bloom}
+Bloom es un modelo de lenguaje open source.
+Fue entrenado con un conjunto de datos de 46 idiomas y 13 lenguajes de programación.
+En lugar de usar una licencia permisiva, cómo MIT, Bloom usa la licencia RAIL (Responsible AI Licenses).
+El cual prohíbe el uso de este modelo para fines destructivos.
+
+Donut es un modelo de fin a fin para la extracción visual de datos \cite{kim2022ocrfree}.
+Tiene cómo entrada imágenes de documentos y cómo salida tokens en formato JSON.
+A diferencia de otros modelos, que dependen de una solución OCR para el reconocimiento del texto,
+Donut se encarga de todo el proceso.
+Lo cual le ha permitido superar en uso de memoria, tiempo de ejecución y precisión a los otros modelos.
+
+El entrenamiento de Donut está separado en dos partes: Pre-entrenamiento y Reajuste.
+En el Pre-entrenamiento Donut aprende a leer con documentos sintéticos generados a partir de Wikipedia en diferentes idiomas.
+Al final en el Reajuste Donut aprende a entender los documentos.
+Donut tiene tres posibles capacidadades:
+\begin{itemize}
+	\item Clasificación de documentos.
+	\item Extracción de información de documentos.
+	\item Resolución visual de preguntas sobre documentos.
+\end{itemize}
+
+\end{document}
+
+%\section{Modelos pre-entrenados}
+%\cite{radford2018improving}
+
+
+%Una revisión de la literatura es un resumen crítico y analítico, y una síntesis del conocimiento actual de un tema. Una revisión de la literatura es mucho más que una lista de revisiones separadas de artículos y libros debe comparar y relacionar diferentes teorías, hallazgos, etc., en lugar de resumirlos individualmente. También debe tener un enfoque o tema particular para organizar la revisión.  Recuerde que no tiene por qué ser un relato exhaustivo de todo lo publicado sobre el tema, sino debería discutir toda la literatura académica más significativa e importante para ese enfoque.
+%
+%El estado del arte o revisión bibliográfica permite pocisionar nuestro proyecto dentro de los trabajos ya existentes en la literatura científica. En la revisión bibliográfica se deben revisar solamente documentos pertenecientes a la literatura primaria y secundaria, evitando la literatura terciaria y gris y la literatura no científica. Es importante definir el formato de la citaciones (e.g., APA) y las forma correcta de hacerlo.
+%
+%Existen varias técnicas para construir esta parte de un proyecto de investigación. Podemos utilizar una técnica poco formal, como la Revisión Empírica o Narrativa o podemos utilizar una técnica mas estructurada como la Revisión Sistemática.
+%
+%La revisión de la literatura debe concluir con un resumen y una pequeña discusión.
+%
+%\section{Sección 1 (Opcional)}
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+%
+%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est.
+%
+%
+%
+%\section{Segundo subtítulo (Opcional)}
+%
+%\subsection{División del segundo subtítulo}
+%
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+%
+%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est.
+%
+%
+%
+%

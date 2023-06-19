@@ -1,0 +1,165 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\chapter{MARCO TEÓRICO}
+
+
+\section{Extracción de información visual}
+
+\subsection{Antecedentes}
+El Procesamiento de Lenguaje Natural se ha convertido en uno de los temas más populares en el campo de la Inteligencia Artificial.
+Según \citet{CHEN2022100001} la investigación de este tema tuvo tres fases:
+Desde 1990 hasta 2005 la cantidad de papers era reducida con poco crecimiento.
+A partir del 2006 hubo un crecimiento razonable.
+En el 2017 empezó el crecimiento exponencial del interés y la cantidad de papers sobre Lenguaje Natural.
+
+\subsection{Fundamento: Tokenización}
+
+La tokenización es el proceso de transformar una cadena de lenguaje natural en unidades llamadas \emph{tokens}. \cite{Grefenstette1999}
+Los cuales serán usados en los siguientes pasos del Procesamiento de Lenguaje Natural.
+
+En este caso el siguiente paso es el procesamiento con un Gran Modelo de Lenguaje.
+
+\subsection{Fundamento: Autómata finito determinista}
+
+Un Autómata Finito Determinista es una 5-tupla. \cite{hopcroft2001introduction}
+\[M = (Q, \Sigma, q_0, \delta, F)\]
+Donde:
+\begin{itemize}
+	\item $Q$: El conjunto de estados $({q_0, q_1,\ldots,q_n})$.
+	\item $\Sigma$: El alfabeto de entrada.
+	\item $q_0 \in Q$: El estado inicial.
+	\item $\delta: Q \times \Sigma \rightarrow Q$: Las funciones de transición.
+	\item $F \subseteq Q$: El conjunto de estados finales.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=30mm, auto]
+		\node[state, initial] (q0) {$q_0$};
+		\node[state] (q1) [right of=q0] {$q_1$};
+		\node[state] (q2) [right of=q1] {$q_2$};
+		\node[state, accepting] (q3) [right of=q2] {$q_3$};
+
+		\path[->]
+			(q0) edge[loop above] node {1} ()
+			(q2) edge[loop above] node {0} ()
+			(q3) edge[loop above] node {1,0} ()
+			(q0) edge[bend left] node {0} (q1)
+			(q1) edge[bend left] node {0} (q2)
+			(q2) edge[bend left] node {1} (q3)
+			(q1) edge[bend left] node {1} (q0)
+		;
+	\end{tikzpicture}
+	\caption{Un ejemplo de autómata Finito Determinista $(M)$}
+	\label{fig:dfa}
+\end{figure}
+
+Las funciones de transición del autómata de la figura \ref{fig:dfa} pueden ser representadas en la siguiente tabla:
+
+\begin{table}[H]
+	\centering
+	\caption{Funciones de transición $(\delta)$}
+	\label{tab:dfa-delta}
+	\begin{tabular}{c|c|c}
+		& 0 & 1\\
+		\hline
+		$q_0$ & $q_1$ & $q_0$\\
+		$q_1$ & $q_2$ & $q_0$\\
+		$q_2$ & $q_2$ & $q_3$\\
+		$q_3$ & $q_3$ & $q_3$\\
+	\end{tabular}
+\end{table}
+
+\subsection{Fundamento: Expresiones regulares}
+
+\citet{hopcroft2001introduction} describen a las Expresiones Regulares cómo expresiones que representan Autómatas Finitos de una manera más declarativa.
+Sea $\Sigma$ el alfabeto de entrada, una Expresión Regular $E$ puede estar conformada por:
+
+\begin{itemize}
+	\item $\varnothing$: Conjunto vacío.
+	\item $\varepsilon$: Cadena vacía (`` '' o $\{\varepsilon\}$).
+	\item $a \in \Sigma$: Un caracter literal.
+	\item $E_1E_2$: Concatenación
+	\item $E_1 | E_2$: Alternación. Puede ser $E_1$ o $E_2$.
+	\item $E^*$: Clausura. $E^*$ es equivalente a la concatenación de $n$ $E$s, donde $n\in\mathbb{Z}^+$.
+\end{itemize}
+
+Estas expresiones puden ser usadas para transformar el lenguaje natural en \emph{tokens}.
+
+%%%
+
+%El Marco Teórico es el resultado de los dos primeros pasos de una investigación (la idea y planteamiento del problema), ya que una vez que se tiene claro qué se investigará, se pasa a la etapa de ``manos a la obra'' de la investigación. Los objetivos del Marco Teórico son permitir ubicar el tema objeto de investigación dentro del conjunto de las teorías existentes y describir de manera detallada cada uno de los elementos de la teoría que serán directamente utilizados en el desarrollo de la investigación. Su construcción se puede dar en base a tres fases:
+%
+%\begin{enumerate}
+%  \item \textbf{Inmersión:} En esta etapa la función principal del marco teórico inicial es detectar si se ha dado o no respuesta a las preguntas de investigación. La inmersión literatura permite refinar el problema de investigación, justificar la realización del estudio, en general, afinar y mejorar la propuesta de investigación. Para esta fase se puede hacer uso de un mapa conceptual, técnica para ordenar la información en una etapa inicial exploratoria.
+%
+%  \item \textbf{Extensión:} En esta fase se revisan todas las fuentes bibliográficas que tengan potencial de relación con la pregunta de investigación. El objetivo de esta fase es extender la revisión de la literatura lo suficiente como para asegurarse que ningún aspecto clave quede fuera de la investigación. Para el desarrollo de esta fase se puede usar la técnica de ordenamiento que ayuda a discernir cuál serán los temas centrales (vértebras) y sub-temas secundarios (ramas) del marco teórico.
+%
+%  \item \textbf{Refinación:} En esta fase el marco teórico extendido se reduce y concentra en aquellos puntos y temas que son más propios y pertinentes al problema específico de estudio. No se debe incluir “toda” la literatura revisada sino sólo aquello que resulte de importancia para el lector final de la investigación.
+%  Un buen marco teórico es que en pocas páginas trata con profundidad los aspectos claves para comprender la motivación, desarrollo, resultados y alcances de la investigación. En esta fase se construye el índice final del marco teórico del informe. Los contenidos están, por lo tanto, estructurados, jerarquizados y acotados.
+%
+%\end{enumerate}
+%
+%El Marco Teórico nos ayudará a seleccionar las palabras clave que serán usadas al momento de construir el estado del arte.
+%Esta sección es aveces llamado Marco Conceptual o Marco Lógico.
+%
+%
+%\section{Primer subtítulo}
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+%
+%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est.
+%
+%
+%\section{Segundo subtítulo}
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+%
+%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est. La relación entre $a$ y $b$ puede expresarse como
+%%
+%\begin{equation}
+%  \label{eq:1}
+%  a+b=\sqrt{\frac{4}{3}},
+%\end{equation}
+%%
+%donde $a$ y $b$ son escalares.
+%
+%Un ejemplo de cómo poner una figura se muestra en la Fig. \ref{fig:diagram2}, y es importante recordar la relación mostrada en \eqref{eq:1}.
+%
+%
+%\begin{figure}
+%\begin{center}
+%\begin{tabular}{cc}
+%\includegraphics[height=3cm]{images/logo_utec.png} &
+%\includegraphics[height=2cm]{images/logo_utec.png} \\
+%(a) & (b)
+%\end{tabular}
+%\caption{\label{fig:diagram2}Scheme showing the architecture of a generic kinematic task. (a) Logo en tamaño de 3 centímetros. (b) Logo en tamaño de 2 centímetros.}
+%\end{center}
+%\end{figure}
+%
+%
+%\section{Tercer subtítulo}
+%
+%\subsection{División del tercer subtítulo}
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+%
+%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est.
+%
+%\begin{table}[H]
+%    \centering
+%    \begin{tabular}{c|c}
+%        Tiempo($s$) & Distancia($m$) \\
+%        \hline
+%        10 & 23 \\
+%        20 & 33 \\
+%        30 & 43 \\
+%        40 & 53 \\
+%    \end{tabular}
+%    \caption{Tiempos versus distancia.}
+%    \label{tab:tiempo_versus_distancia}
+%\end{table}
+%\end{document}

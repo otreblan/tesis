@@ -1,0 +1,80 @@
+%% Paquetes
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage[spanish,onelanguage,ruled,vlined]{algorithm2e}
+\usepackage{verbatim}
+\usepackage{subfiles} 
+\usepackage{xcolor} 
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{pgfplots}
+
+\usetikzlibrary{external}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{babel} % Sin esto algunas cosas no funcionan
+
+\pgfplotsset{compat=1.18}
+
+% Bibliografía
+\usepackage{csquotes}
+\usepackage[
+	natbib,
+	backend=biber,
+    style=ieee
+	]{biblatex}
+\addbibresource{referencias.bib} % Recibe las referencias de IEEE
+
+\allowdisplaybreaks
+\vbadness=999999
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Ubicación de los imágenes.
+\graphicspath{images/}
+
+% Reinsert missing \algbackskip
+\def\algbackskip{\hskip-\ALG@thistlm}
+
+% Link colors
+\definecolor{red}{HTML}{F22C40}
+\definecolor{green}{HTML}{5AB738}
+\definecolor{yellow}{HTML}{D5911A}
+\definecolor{blue}{HTML}{407EE7}
+\definecolor{magenta}{HTML}{6666EA}
+\definecolor{cyan}{HTML}{00AD9C}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=cyan,
+	citecolor=magenta,
+}
+
+% https://tex.stackexchange.com/questions/10555/hyperref-warning-token-not-allowed-in-a-pdf-string
+\pdfstringdefDisableCommands{%
+  \def\orcid#1{<#1>}%
+}
+
+\frontmatter
+
+\department{Ciencia de la Computación}
+\degree{Licenciado}
+\major{Ciencia de la Computación}
+
+\title{DocQALLM}
+
+\author{Alberto Oporto Ames \orcid{0009-0004-4086-6738}} % Es obligatorio agregar ORCID del alumno
+\supervisor{Julio Gutierrez Alva \orcid{0000-0002-2536-6055}} % Es obligatorio agregar ORCID del asesor
+
+\date{2023}
+
+\renewcommand{\bibname}{\hfill\Large\bf{REFERENCIAS BIBLIOGRÁFICAS}\hfill}
+
+\setstretch{1.5}

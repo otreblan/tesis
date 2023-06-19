@@ -1,0 +1,85 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\customchapter{INTRODUCCIÓN}
+
+%Este capítulo marca el inicio del informe de investigación, por lo tanto debe explicar con claridad de qué se tratará la investigación que se desea hacer. La introducción a la investigación consiste en precisar los distintos aspectos del problema para lo cual se describe el problema, sus implicancias, sus aspectos relevantes y los factores que lo afectan (se hace referencia a los hechos, las variables, las condiciones, relaciones, características, comportamientos detectados).
+%
+%La Introducción tiene varios objetivos clave, entre los que se encuentran presentar el tema y hace que el lector se interese en él, proporcionar antecedentes o resumir la investigación existente (revisión de la literatura), posicionar el enfoque del autor (crítica), detallar el problema de investigación específico. Usualmente, la sección Introducción puede servir para dar una descripción general de la estructura del documento.
+%
+%Cuando se escribe la introducción, generalmente se sigue la estrategia del embudo. Se empieza de manera general y se termina describiendo - de manera sucinta - la solución planteada. En ese sentido. la Introducción se puede construir en tres movimientos:
+%
+%\begin{enumerate}
+%  \item \textbf{Establecer el territorio de investigación.} Basado en dos pasos: evidenciar la significancia del área y revisar la literatura.
+%  \item \textbf{Establecer el nicho de investigación.} Justificar el tópico de investigación. Describe la situación problemática.
+%  \item \textbf{Colocar tu investigación dentro del nicho de investigación.} Basado en los siguientes pasos: objetivos y alcance de tu investigación, definición de términos clave (opcional) y proporcionar el esquema del documento.
+%\end{enumerate}
+
+
+\introsection{Formulación del problema}
+
+En la actualidad para buscar algún dato en una colección de documentos es necesario leerlos individualmente.
+Eso puede llegar a ser lento y tedioso cuando la cantidad de documentos es grande.
+Especialmente cuando el contenido es dificil de indexar,
+cómo imágenes,
+texto manuscrito,
+o datos relacionados al contexto de la colección en lugar en un solo documento.
+%Por eso, en este paper
+
+%Sintetiza y formula el problema \textbf{concreto} de la investigación en base a una pregunta o la proposición que condensa y explícita los factores, las categorías y las variables y su relación que servirán de base en la búsqueda y construcción de la solución. La formulación del problema de investigación debe estar gramaticalmente correcta y no exceder a 1 párrafo. Se sugiere la siguiente estructura:
+%\begin{itemize}
+%    \item \textbf{Oración 1:} ¿Qué ya sabemos? Contextualizar el problema. Plantea los antecedentes de tu problema de investigación.
+%    \item \textbf{Oración 2:} ¿Cuál es el problema? Defina exactamente lo que su trabajo va a abordar. Si alguien pregunta de qué trata su trabajo, está sola oración debería dejarlo claro.
+%    \item \textbf{Oración 3:} ¿Por qué importa el problema? Muestre por qué el problema es relevante y necesita ser resuelto. Si su investigación es más teórica, hable sobre cómo puede avanzar o alterar nuestra comprensión actual del tema.
+%    \item \textbf{Oración 4:} ¿Por qué importa el problema? Muestre por qué el problema es relevante y necesita ser resuelto. Si su investigación es más teórica, hable sobre cómo puede avanzar o alterar nuestra comprensión actual del tema.
+%\end{itemize}
+%
+%
+%Para identificar correctamente el problema se sugiere utilizar una herramienta como por ejemplo el árbol del problema.
+
+\introsection{Objetivos de investigación}
+
+%Los objetivos de investigación deben estar claramente redactados y evitando ambigüedades. Recordemos que los objetivos deben ser cumplidos al finalizar el proyecto de investigación. Los objetivos deben se expresadas como acciones que debe ser factibles y consistentes en términos teórico-metodológicos. Los objetivos están relacionados con la problemática.
+
+\paragraph{Objetivo General} \hspace{0pt} \\
+\textbf{Reducir el tiempo de búsqueda de datos en una colección de documentos con OCR y LLM.}
+
+%El objetivo general se redacta en el formato de \textbf{una oración} que explicita la respuesta al problema que ha sido formulado (priorizado). Comienza con el verbo en infinitivo que implica la acción principal de los investigadores y su logro (producto final de la investigación) debe ser observable y alineado al problema de investigación. No es pertinente acompañar el objetivo con los comentarios, explicaciones, descripciones, interpretaciones. La redacción del objetivo general debe estar clara por sí misma para identificar el propósito de la investigación. El objetivo general, el cual debe atacar el problema central (tronco) del árbol del problema.
+
+\paragraph{Objetivos Específicos}
+
+\begin{enumerate}
+    \item Tener un conjunto de datos sobre documentos de libre acceso.
+    \item Tener suficiente poder computacional para el entrenamiento del modelo.
+    \item Tener un modelo preparado para responder preguntas sobre los documentos.
+    \item Pasar las pruebas y benchmarks de rendimiento del modelo.
+\end{enumerate}
+
+%El buen diseño de la investigación desarrolla de 3 a 5 objetivos específicos para obtener los logros parciales de forma ordenada y consecutiva en el cumplimiento con el propósito u objetivo general de la investigación.
+%
+%Los objetivos específicos están formulados con un verbo y sus logros son verificables y medibles. Prestar mayor atención a la selección de los verbos que sean más idóneos y apropiados para la acción planteada y que estén formulados en términos de los logros significativos para la obtención del resultado final. No confundir objetivos con las actividades y medios o mecanismos para lograr los objetivos. Los objetivos específicos están destinados a solucionar las causas del diagrama del árbol del problema.
+
+\introsection{Justificación}
+
+El producto de esta tesis permitirá reducir el tiempo de búsqueda en una
+colección de documentos.
+Además de hacer posible crear una base de datos facilmente indexable y consultable con lenguaje natural.
+Como ChatGPT\cite{leiter2023chatgpt}, pero especializado en documentos.
+
+%(1-2 párrafos) Este elemento de la introducción a la investigación responde a las preguntas ¿Cuál será el impacto de la investigación y sus resultados en el ámbito del tema de investigación?. El lector debe entender por qué es importante resolver el problema que se plantea, desde el punto de vista social y especialmente, computacional. La idea es justificar la razón por la cual el problema que intenta resolver es importante y relevante. Tenga en cuenta que el problema que intenta resolver puede ser de tipo aplicativo, y en estos casos, se intenta aplicar algoritmos, métodos o técnicas para solucionar algún problema de otra área como biología, medicina, sociología, entre otros.
+%
+% Se debe identificar y categorizar los beneficios o ventajas según los criterios que fueron determinantes para elegir el tema y la solución planteada. En función del tema, el problema y la solución planteada los beneficios esperados pueden resultar y deben redactarse en términos de la utilidad técnica, práctica, metodológica, valor teórico, implicancias sociales, ambientales, tecnológicas y otras categorías.
+%
+%La finalidad de esta sección del capítulo es dar la respuesta a la pregunta ¿Para qué hacer este trabajo de investigación? Se debe demostrar que la forma como se planea la investigación a partir del problema de investigación (evaluando la situación existente, se respondió a la pregunta ¿Por qué de esta investigación?), y la propuesta de solución en el formato de los objetivos (mediante el análisis y razonamiento se respondió a la pregunta ¿Qué se va a hacer al respecto del problema planteado?) Es importante, relevante y mostrar beneficios esperados del resultado final de la investigación.
+
+\introsection{Alcance y limitaciones / restricciones} %[opcional]
+
+El hardware que poseo actualmente solo me permitirá trabajar con colecciones relativamente pequeñas.
+Tanto por el poco espacio de almacenamiento cómo también el poder computacional.
+Además tengo poca experiencia en el campo de la Inteligencia Artificial.
+
+%(1 párrafo, opcional) Identificar y explicitar el alcance, la cobertura de los factores o la profundidad de análisis, que se contempla en el desarrollo de la investigación y que no se va a considerar. Incluir la definición del alcance para ambos aspectos: de la investigación misma (precisar los límites de la investigación señalando la última etapa del ciclo de vida del sistema en el diseño o del proceso) y de la solución propuesta (precisar el nivel de profundidad en el desarrollo, por ejemplo, modelo conceptual, prototipo o sistema completo). Delimitar el propósito principal en tiempo, espacio y uso de tecnologías.
+%Mencionar, si se considera pertinente, la disponibilidad de recursos humanos, materiales y financieros, así como el tiempo requerido para desarrollar la investigación.
+
+\end{document}
