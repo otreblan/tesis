@@ -15,6 +15,14 @@
 \usepackage{pgfplots}
 \usepackage{xurl}
 \usepackage{minted}
+\usepackage{xpatch}
+
+% https://tex.stackexchange.com/questions/558506/using-minted-in-subfiles-in-a-subdirectory
+% fix for first kind
+\xpatchcmd\inputminted
+  {\minted@pygmentize[#3]{#2}}
+  {\minted@pygmentize[\import@path #3]{#2}}
+  {}{\fail}
 
 \usetikzlibrary{external}
 \usetikzlibrary{automata}

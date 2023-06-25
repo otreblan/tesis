@@ -15,3 +15,5 @@ tikz
 *.toc
 *.lof
 *.lot
+*.pygtex
+*.pygstyle

@@ -10,6 +10,16 @@
 
 El primer paso para crear el dataset es descargar un dump de Wikipedia en español desde \url{https://dumps.wikimedia.org/eswiki/latest/eswiki-latest-pages-articles.xml.bz2}.
 
+Luego convertimos el dump en un corpus con el siguiente script:
+% https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html
+\inputminted[bgcolor=codeBack, tabsize=2]{python}{make_wiki_corpus.py}
+\begin{minted}[bgcolor=codeBack, tabsize=2]{bash}
+$ ./make_wiki_corpus.py eswiki-latest-pages-articles.xml.bz2 eswiki.txt
+\end{minted}
+
+El resultado es \texttt{eswiki.txt}, un archivo corpus.
+El cual será un input de Synthdog, la misma herramienta descrita por \citet{kim2022ocrfree}, para la creación de imágenes sintéticas en español.
+
 % Dump de wikipedia
 % Creación del corpus
 % Synthdog
