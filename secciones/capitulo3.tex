@@ -25,11 +25,13 @@ El cual será un input de Synthdog, la misma herramienta descrita por \citet{kim
 \subsection{Synthdog}
 
 El último paso para generar las 500.000 imágenes es ejecutar los siguientes comandos en la carpeta \texttt{synthdog} del repositorio de Donut\cite{kim2022ocrfree}.
+Al final, en la carpeta \texttt{outputs} estará nuestro dataset \texttt{SynthDoG\_es}
+conformado por imágenes y sus metadatos.
 
 \begin{minted}[bgcolor=codeBack, tabsize=2]{bash}
-$ sed "s/enwiki.txt/eswiki.txt/" config_en.yaml > config_es.yaml
-$ mv eswiki.txt resources/corpus/
-$ synthtiger \
+sed "s/enwiki.txt/eswiki.txt/" config_en.yaml > config_es.yaml
+mv eswiki.txt resources/corpus/
+synthtiger \
 	--output ./outputs/SynthDoG_es \
 	--count 500000 \
 	--worker $(nproc) \
@@ -41,9 +43,13 @@ $ synthtiger \
 
 \section{Pre-entrenamiento}
 
-%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque quis augue malesuada porttitor. Phasellus tincidunt ipsum quis metus pellentesque commodo. Phasellus vitae metus arcu. Pellentesque scelerisque ac nulla laoreet mollis. Vivamus blandit, velit eget convallis eleifend, nibh risus congue sapien, tristique bibendum justo lorem eget arcu. Quisque mollis tristique tellus, sit amet hendrerit purus lacinia id. Fusce sed nunc arcu. Phasellus porttitor convallis ipsum, sit amet tempus nulla mattis a \cite{Reumann2012}.
+Para hacer que Donut pueda leer documentos en español lo entrenamos con el dataset previamente
+creado.
 
-%Sed eu orci feugiat, mollis nunc convallis, lobortis lorem. Suspendisse in lacinia magna, vel elementum tortor. Suspendisse hendrerit commodo justo, vitae posuere nisl eleifend at. Morbi vehicula risus ut diam tempus, ac dapibus erat euismod. Nunc quis elementum mi, et dictum nulla. Mauris rhoncus diam ac orci laoreet lobortis. Fusce et augue efficitur, dignissim dui ac, convallis est.
+\inputminted[bgcolor=codeBack, tabsize=2]{bash}{train.sh}
 
+\section{Fine tuning}
+
+\# TODO
 
 \end{document}
