@@ -31,8 +31,9 @@ LoRRa \cite{anderson2018bottomup} y M4C \cite{devlin2019bert}.
 %En lugar de usar una licencia permisiva, cómo MIT, Bloom usa la licencia RAIL (Responsible AI Licenses).
 %El cual prohíbe el uso de este modelo para fines destructivos.
 
-Donut es un modelo de fin a fin para la extracción visual de datos \cite{kim2022ocrfree}.
-Tiene cómo entrada imágenes de documentos y cómo salida tokens en formato JSON.
+Donut es un modelo basado en Transformers de fin a fin para la extracción visual de datos \cite{kim2022ocrfree}.
+Su encoder es Swin Transformer\cite{9710580}, el cual convierte una imágen $x \in \mathbb{R}^{H\times W \times C}$ en un vector $\{z_i|z_i\in\mathbb{R}^d,1\leq i \leq n\}$ dónde $n$ es el tamaño del vector característico.
+Y su decoder es BART\cite{lewis-etal-2020-bart}, que convierte el anterior output $\{z\}$ en una serie de tokens $(y_i)^m_{i=1}$ dónde $y_i\in\mathbb{R}^v$ es un vector one-hot para el $i$-ésimo token, $v$ el tamaño del vocabulario de tokens y $m$ un hiperparámetro.
 A diferencia de otros modelos, que dependen de una solución OCR para el reconocimiento del texto,
 Donut se encarga de todo el proceso.
 Lo cual le ha permitido superar en uso de memoria, tiempo de ejecución y precisión a los otros modelos.
