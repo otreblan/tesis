@@ -7,9 +7,11 @@
 %Esta sección describe la propuesta metodológica. La metodología debe ser clara y debe tener un orden lógico. Ella debe tener relación con la problemática y los objetivos propuestos en la sub-sección Objetivos. Se debe tener en cuidado con los términos utilizados en esta sección. Ellos deberían haber sido descritos en el Marco Teórico. En esta parte también es usual colocar un diagrama o esquema que muestre el proceso que seguirán. Recuerde que todo lo expresado aquí debe tener el próposito de ser completamente reproducido por el lector.
 
 \section{Creación del dataset}
+\subsection{Dump de Wikipedia en español}
 
 El primer paso para crear el dataset es descargar un dump de Wikipedia en español desde \url{https://dumps.wikimedia.org/eswiki/latest/eswiki-latest-pages-articles.xml.bz2}.
 
+\subsection{Corpus}
 Luego convertimos el dump en un corpus con el siguiente script:
 % https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html
 \inputminted[bgcolor=codeBack, tabsize=2]{python}{make_wiki_corpus.py}
@@ -20,9 +22,22 @@ $ ./make_wiki_corpus.py eswiki-latest-pages-articles.xml.bz2 eswiki.txt
 El resultado es \texttt{eswiki.txt}, un archivo corpus.
 El cual será un input de Synthdog, la misma herramienta descrita por \citet{kim2022ocrfree}, para la creación de imágenes sintéticas en español.
 
-% Dump de wikipedia
-% Creación del corpus
-% Synthdog
+\subsection{Synthdog}
+
+El último paso para generar las 500.000 imágenes es ejecutar los siguientes comandos en la carpeta \texttt{synthdog} del repositorio de Donut\cite{kim2022ocrfree}.
+
+\begin{minted}[bgcolor=codeBack, tabsize=2]{bash}
+$ sed "s/enwiki.txt/eswiki.txt/" config_en.yaml > config_es.yaml
+$ mv eswiki.txt resources/corpus/
+$ synthtiger \
+	--output ./outputs/SynthDoG_es \
+	--count 500000 \
+	--worker $(nproc) \
+	--verbose \
+	template.py \
+	SynthDoG \
+	config_es.yaml
+\end{minted}
 
 \section{Pre-entrenamiento}
 
