@@ -23,74 +23,8 @@ En el 2017 empezó el crecimiento exponencial del interés y la cantidad de pape
 La tokenización es el proceso de transformar una cadena de lenguaje natural en unidades llamadas \emph{tokens}. \cite{Grefenstette1999}
 Los cuales serán usados en los siguientes pasos del Procesamiento de Lenguaje Natural.
 
-En este caso el siguiente paso es el procesamiento con un Gran Modelo de Lenguaje.
+%En este caso el siguiente paso es el procesamiento con un Gran Modelo de Lenguaje.
 
-\subsection{Fundamento: Autómata finito determinista}
-
-Un Autómata Finito Determinista es una 5-tupla. \cite{hopcroft2001introduction}
-\[M = (Q, \Sigma, q_0, \delta, F)\]
-Donde:
-\begin{itemize}
-	\item $Q$: El conjunto de estados $({q_0, q_1,\ldots,q_n})$.
-	\item $\Sigma$: El alfabeto de entrada.
-	\item $q_0 \in Q$: El estado inicial.
-	\item $\delta: Q \times \Sigma \rightarrow Q$: Las funciones de transición.
-	\item $F \subseteq Q$: El conjunto de estados finales.
-\end{itemize}
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance=30mm, auto]
-		\node[state, initial] (q0) {$q_0$};
-		\node[state] (q1) [right of=q0] {$q_1$};
-		\node[state] (q2) [right of=q1] {$q_2$};
-		\node[state, accepting] (q3) [right of=q2] {$q_3$};
-
-		\path[->]
-			(q0) edge[loop above] node {1} ()
-			(q2) edge[loop above] node {0} ()
-			(q3) edge[loop above] node {1,0} ()
-			(q0) edge[bend left] node {0} (q1)
-			(q1) edge[bend left] node {0} (q2)
-			(q2) edge[bend left] node {1} (q3)
-			(q1) edge[bend left] node {1} (q0)
-		;
-	\end{tikzpicture}
-	\caption{Un ejemplo de autómata Finito Determinista $(M)$}
-	\label{fig:dfa}
-\end{figure}
-
-Las funciones de transición del autómata de la figura \ref{fig:dfa} pueden ser representadas en la siguiente tabla:
-
-\begin{table}[H]
-	\centering
-	\caption{Funciones de transición $(\delta)$}
-	\label{tab:dfa-delta}
-	\begin{tabular}{c|c|c}
-		& 0 & 1\\
-		\hline
-		$q_0$ & $q_1$ & $q_0$\\
-		$q_1$ & $q_2$ & $q_0$\\
-		$q_2$ & $q_2$ & $q_3$\\
-		$q_3$ & $q_3$ & $q_3$\\
-	\end{tabular}
-\end{table}
-
-\subsection{Fundamento: Expresiones regulares}
-
-\citet{hopcroft2001introduction} describen a las Expresiones Regulares cómo expresiones que representan Autómatas Finitos de una manera más declarativa.
-Sea $\Sigma$ el alfabeto de entrada, una Expresión Regular $E$ puede estar conformada por:
-
-\begin{itemize}
-	\item $\varnothing$: Conjunto vacío.
-	\item $\varepsilon$: Cadena vacía (`` '' o $\{\varepsilon\}$).
-	\item $a \in \Sigma$: Un caracter literal.
-	\item $E_1E_2$: Concatenación
-	\item $E_1 | E_2$: Alternación. Puede ser $E_1$ o $E_2$.
-	\item $E^*$: Clausura. $E^*$ es equivalente a la concatenación de $n$ $E$s, donde $n\in\mathbb{Z}^+$.
-\end{itemize}
-
-Estas expresiones puden ser usadas para transformar el lenguaje natural en \emph{tokens}.
 
 %%%
 
