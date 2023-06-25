@@ -18,13 +18,45 @@ Desde 1990 hasta 2005 la cantidad de papers era reducida con poco crecimiento.
 A partir del 2006 hubo un crecimiento razonable.
 En el 2017 empezó el crecimiento exponencial del interés y la cantidad de papers sobre Lenguaje Natural.
 
-\subsection{Fundamento: Tokenización}
-
-La tokenización es el proceso de transformar una cadena de lenguaje natural en unidades llamadas \emph{tokens}. \cite{Grefenstette1999}
-Los cuales serán usados en los siguientes pasos del Procesamiento de Lenguaje Natural.
+%\subsection{Fundamento: Tokenización}
+%
+%La tokenización es el proceso de transformar una cadena de lenguaje natural en unidades llamadas \emph{tokens}. \cite{Grefenstette1999}
+%Los cuales serán usados en los siguientes pasos del Procesamiento de Lenguaje Natural.
 
 %En este caso el siguiente paso es el procesamiento con un Gran Modelo de Lenguaje.
 
+\subsection{Transformers}
+Según \citet{vaswani2017attention} los Transformers son una nueva arquitectura de modelos los
+cuales tienen mejoras significativas en sus mecanismos de atención para la creación de dependencias entre el input y el output.
+A diferencia de las Redes Neuronales Recurrentes y Convolucionales, que tienen dificultades
+al crear dependencias entre datos distantes durante el entrenamiento, los Transformers tienen
+un rango infinito.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/g920.png}
+	\caption{Arquitectura Transformer\cite{vaswani2017attention}}
+	%\label{fig:}
+\end{figure}
+
+Un Transformer está conformado por un encoder y un decoder con vectores como input y output.
+Además ambos pueden tener un número arbitrario $N$ de capas que toman como input el output de la capa anterior.
+En el caso de la primera capa esta recibe los tokens con sus respectivas posiciones codificada en sí.
+Al final, el output de la última capa, después de ser linealizado y normalizado,
+devuelve las probabilidades de que el $i$-ésimo token sea el siguiente output.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/g6211.png}
+	\caption{Izquierda: Atención de producto escalar escalado. Derecha: Atención multi-cabeza.\cite{vaswani2017attention}}
+	%\label{fig:}
+\end{figure}
+
+Debido a que el $i$-esimo token no puede depender de los tokens que van después de él,
+el decoder tiene una fase de enmascarado que evita la creación de esas dependencias.
+La máscara funciona al sumar el resultado de la multiplicación de los vectores $Q$ y $K$
+con una matriz con $-\infty$ en las celdas que representan aquellas dependencias y 0 en las que no.
+Después de la normalización las celdas enmascaradas darán una probabilidad del 0\%.
 
 %%%
 
