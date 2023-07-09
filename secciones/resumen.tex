@@ -15,7 +15,10 @@ En este trabajo crearemos una aplicación con Transformers para facilitar la bú
 Además la búsqueda será en lenguaje natural.
 
 %\introsection{Marco Metodológico}
-Para el entrenamiento usamos un dataset de 500.000 imágenes sintéticas en español.
+Para extraer información de los documentos usaremos Donut.
+El cual aceptará un imágen y una pregunta extractiva para dar una respuesta.
+Donut actualmente está entrenado para leer texto en español, por lo que haremos transfer learning para enseñarle un nuevo idioma.
+Para el entrenamiento usamos un dataset de 500.000 imágenes sintéticas en español generadadas con Synthdog a partir de texto de Wikipedia.
 % TODO Con Synthdog y Donut.
 % TODO Describir el conjunto de documentos.
 % TODO Describir las preguntas extractivas.

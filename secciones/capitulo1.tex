@@ -15,9 +15,9 @@ un dataset de preguntas y respuestas sobre documentos escaneados con OCR.
 Está conformado por 50000 preguntas y 12767 imágenes de documentos de diferentes épocas.
 Además, el dataset tiene diferentes tipos de documentos:
 manuscritos, impresos, escritos con máquinas de escribir y digitales.
-Como también diferentes tipos de preguntas:
+Como también diferentes tipos de preguntas dependiendo del origen de los datos:
 manuscrito, forma, diseño de página, tabla, texto, fotografía, figura y binario.
-Al final, este dataset fue usado para entrenar dos modelos:
+Al final, este desempeño de este dataset fue evaluado con dos modelos VQA ya existentes:
 LoRRa \cite{anderson2018bottomup} y M4C \cite{devlin2019bert}.
 
 %Según \citet{touvron2023llama} LLaMa es una colección de modelos de lenguaje creada por Meta.
@@ -31,8 +31,8 @@ LoRRa \cite{anderson2018bottomup} y M4C \cite{devlin2019bert}.
 %En lugar de usar una licencia permisiva, cómo MIT, Bloom usa la licencia RAIL (Responsible AI Licenses).
 %El cual prohíbe el uso de este modelo para fines destructivos.
 
-Donut es un modelo basado en Transformers de fin a fin para la extracción visual de datos \cite{kim2022ocrfree}.
-Su encoder es Swin Transformer\cite{9710580}, el cual convierte una imágen $x \in \mathbb{R}^{H\times W \times C}$ en un vector $\{z_i|z_i\in\mathbb{R}^d,1\leq i \leq n\}$ dónde $n$ es el tamaño del vector característico.
+Donut es un modelo más reciente basado en Transformers de fin a fin para la extracción visual de datos \cite{kim2022ocrfree}.
+Su encoder es Swin Transformer\cite{9710580}, el cual convierte una imágen $x \in \mathbb{R}^{H\times W \times C}$ en un vector $\{z_i|z_i\in\mathbb{R}^d,1\leq i \leq n\}$ donde $H$, $W$ y $C$ son la altura, ancho y canales de color de la imágen respectivamente y $n$ es el tamaño del vector característico.
 Y su decoder es BART\cite{lewis-etal-2020-bart}, que convierte el anterior output $\{z\}$ en una serie de tokens $(y_i)^m_{i=1}$ dónde $y_i\in\mathbb{R}^v$ es un vector one-hot para el $i$-ésimo token, $v$ el tamaño del vocabulario de tokens y $m$ un hiperparámetro.
 A diferencia de otros modelos, que dependen de una solución OCR para el reconocimiento del texto,
 Donut se encarga de todo el proceso.
@@ -47,6 +47,8 @@ Donut tiene tres posibles capacidadades:
 	\item Extracción de información de documentos.
 	\item Resolución visual de preguntas sobre documentos.
 \end{itemize}
+
+De las cuales usaremos la resolución de preguntas en nuestros documentos escaneados.
 
 \end{document}
 
