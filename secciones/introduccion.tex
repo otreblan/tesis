@@ -21,7 +21,7 @@
 
 En la actualidad para buscar algún dato en una colección de documentos es necesario leerlos individualmente.
 Eso puede llegar a ser lento y tedioso cuando la cantidad de documentos es grande.
-Especialmente cuando el contenido es dificil de indexar,
+Especialmente cuando el contenido es difícil de indexar,
 cómo imágenes,
 texto manuscrito,
 o datos relacionados al contexto de la colección en lugar en un solo documento.
@@ -53,7 +53,7 @@ o datos relacionados al contexto de la colección en lugar en un solo documento.
     %\item Tener suficiente poder computacional para el entrenamiento del modelo.
     \item Implementar un modelo preparado para responder preguntas sobre los documentos.
     \item Pasar las pruebas y benchmarks de rendimiento del modelo.
-    \item Generar un conjunto de datos de documentos sintéticos para el entrenamiento del modelo.
+    \item Generar datasets de documentos sintéticos para el entrenamiento del modelo.
 	%TODO: Chatbot frontend.
 \end{enumerate}
 
@@ -64,9 +64,15 @@ o datos relacionados al contexto de la colección en lugar en un solo documento.
 \introsection{Justificación}
 
 % Más texto sobre los registros civiles (Mi motivación).
+Existen varios escenarios al buscar datos en registros históricos.
+En el peor de los casos el registro con el dato buscado esta deteriorado, perdido o de alguna u otra manera ya no es legible.
+Si ese no es el caso, y si no está digitalizado, aún habría que buscar el dato manualmente, lo cual toma tiempo.
+Aunque digitalizar e indexar documentos de los mejores resultados al momento de buscar un datos, la indexación 
+tiene un costo inicial significativo de tiempo.
+
 El producto de esta tesis permitirá reducir el tiempo de búsqueda de datos en una
-colección de documentos escaneados.
-Además de hacer posible crear una base de datos facilmente indexable y consultable con lenguaje natural en una interfaz del usuario intuitiva.
+colección de documentos escaneados al automatizar la indexación.
+Además de hacer posible crear una base de datos fácilmente consultable con lenguaje natural en una interfaz del usuario intuitiva.
 %Como ChatGPT\cite{leiter2023chatgpt}, pero especializado en documentos.
 
 %(1-2 párrafos) Este elemento de la introducción a la investigación responde a las preguntas ¿Cuál será el impacto de la investigación y sus resultados en el ámbito del tema de investigación?. El lector debe entender por qué es importante resolver el problema que se plantea, desde el punto de vista social y especialmente, computacional. La idea es justificar la razón por la cual el problema que intenta resolver es importante y relevante. Tenga en cuenta que el problema que intenta resolver puede ser de tipo aplicativo, y en estos casos, se intenta aplicar algoritmos, métodos o técnicas para solucionar algún problema de otra área como biología, medicina, sociología, entre otros.
@@ -78,8 +84,11 @@ Además de hacer posible crear una base de datos facilmente indexable y consulta
 \introsection{Alcance y limitaciones / restricciones} %[opcional]
 
 Trabajaremos principalmente con documentos escaneados con texto manuscrito y tipeado en español.
+Más específicamente con registros históricos de la ciudad de Arequipa de inicios del siglo XX.
 Además el modelo estará especializado en responder preguntas extractivas.
-Por ejemplo, en una partida de nacimiento una pregunta extractiva es: ¿Cúal es el nombre la madre?.
+Por ejemplo: En una partida de nacimiento una pregunta extractiva sería ¿Cual es el nombre la madre?
+y la respuesta el nombre en sí.
+
 % Indices y resultados. Cómo también que no estará en el modelo.
 
 %Sin embargo el hardware que poseo actualmente solo me permitirá trabajar con colecciones relativamente pequeñas.
