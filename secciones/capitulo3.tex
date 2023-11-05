@@ -43,13 +43,19 @@ synthtiger \
 
 \section{Pre-entrenamiento}
 
-Para hacer que Donut pueda leer documentos en español lo entrenamos con el dataset previamente
-creado.
+Para hacer que Donut pueda leer documentos en español
+lo entrenamos con el dataset previamente creado.
+El entrenamiento fue hecho en un GPU Nvidia Ampere A100 (40 GB) del cluster Khipu de UTEC.
 
-\inputminted[bgcolor=codeBack, tabsize=2]{bash}{train.sh}
+\inputminted[bgcolor=codeBack, tabsize=2]{bash}{train-es.sh}
+
+\section{Documentos sintéticos}
+El dataset del segundo entrenamiento está conformado por 120000 documentos sintéticos generados con DocSim\cite{DocSim} y sus respectivas preguntas y respuestas.
 
 \section{Fine tuning}
 
-El último paso para que Donut pueda resolver preguntas de nuestros documentos escaneados es volverlo a entrenar con un dataset de preguntas y respuestas en español.
+El último paso para que Donut pueda resolver preguntas de nuestros documentos escaneados es volverlo a entrenar con el dataset sintético.
+
+\inputminted[bgcolor=codeBack, tabsize=2]{bash}{train-es-finetuned.sh}
 
 \end{document}
