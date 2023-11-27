@@ -91,3 +91,60 @@
 \renewcommand{\bibname}{\hfill\Large\bf{REFERENCIAS BIBLIOGRÁFICAS}\hfill}
 
 \setstretch{1.5}
+
+\pgfplotsset
+{
+	% Estilo del cuadro
+	grafico/.style=
+	{
+		width=\linewidth,
+		%height=6cm,
+		ymax=1,
+		%
+		title=\textbf{#1},
+		%
+		axis y line=left,
+		axis x line=bottom,
+		axis line style = ultra thick,
+		%
+		xlabel=\textbf{\# Iteración},
+		ylabel=\textbf{Loss},
+		ymajorgrids=true
+	},
+	linea/.style=
+	{
+		smooth,
+		thick
+	},
+	table/train/.style=
+	{
+		col sep=comma,
+		%
+		x index=1,
+		y index=2
+	},
+	table/validation/.style=
+	{
+		col sep=comma,
+		%
+		x index=1,
+		y index=2
+	}
+}
+
+
+\newcommand{\trainplot}[3]{%
+    \begin{figure}[H]
+        \centering
+    	\begin{tikzpicture}[scale=1, transform shape]
+    		\begin{axis}[
+        		grafico=#1,
+        		legend entries={Entrenamiento,Validación},
+        		legend cell align={left}
+        		]
+    			\addplot[linea, red] table[train] {#2};
+    			\addplot[linea, blue, mark=*] table[validation] {#3};
+    		\end{axis}
+    	\end{tikzpicture}
+    \end{figure}%
+}
