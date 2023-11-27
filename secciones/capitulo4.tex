@@ -22,7 +22,10 @@
 
 \section{Discusión}
 
-Por problemas con el cluster Khipu, nos hemos visto limitados en el tiempo y tamaño del entrenamiento.
+Inicialmente el entrenamiento fue hecho en hardware local (Radeon RX 6800) sin embargo nos dimos cuenta
+que el tiempo de entrenamiento de un modelo transformer no es negligible.
+Luego cambiamos el hardware por el cluster Khipu de UTEC y los tiempo mejoraron significativamente.
+Sin embargo por problemas con el cluster, nos hemos visto limitados en el tiempo y tamaño del entrenamiento.
 El modelo funciona, pero debido a la falta de data augmentation tiene problemas con documentos diferentes
 a su dataset de entrenamiento.
 
