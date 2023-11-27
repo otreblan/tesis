@@ -9,10 +9,10 @@
 \section{Creación del dataset}
 \subsection{Dump de Wikipedia en español}
 
-El primer paso para crear el dataset es descargar un dump de Wikipedia en español desde \url{https://dumps.wikimedia.org/eswiki/latest/eswiki-latest-pages-articles.xml.bz2}.
+El primer paso para crear el dataset es descargar todo el contenido de Wikipedia en español desde \url{https://dumps.wikimedia.org/eswiki/latest/eswiki-latest-pages-articles.xml.bz2}.
 
 \subsection{Corpus}
-Luego convertimos el dump en un corpus con el siguiente script:
+Luego convertimos el archivo en un corpus con el siguiente script:
 % https://www.kdnuggets.com/2017/11/building-wikipedia-text-corpus-nlp.html
 \inputminted[bgcolor=codeBack, tabsize=2]{python}{make_wiki_corpus.py}
 \begin{minted}[bgcolor=codeBack, tabsize=2]{bash}
@@ -41,6 +41,13 @@ synthtiger \
 	config_es.yaml
 \end{minted}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{image_475821.jpg}
+	\caption{Ejemplo de imágen generada con SynthDoG}
+	%\label{fig:}
+\end{figure}
+
 \section{Pre-entrenamiento}
 
 Para hacer que Donut pueda leer documentos en español
@@ -51,6 +58,14 @@ El entrenamiento fue hecho en un GPU Nvidia Ampere A100 (40 GB) del cluster Khip
 
 \section{Documentos sintéticos}
 El dataset del segundo entrenamiento está conformado por 120000 documentos sintéticos generados con DocSim\cite{DocSim} y sus respectivas preguntas y respuestas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.25\textwidth]{006cc6cd159e46b5bf3c44c9545fbb25.jpg}
+	\caption{Ejemplo de imágen generada con DocSim}
+	%\label{fig:}
+\end{figure}
+
 
 \section{Fine tuning}
 
