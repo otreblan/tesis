@@ -52,7 +52,7 @@ synthtiger \
 
 Para hacer que Donut pueda leer documentos en español
 lo entrenamos con el dataset previamente creado.
-El entrenamiento fue hecho en un GPU Nvidia Ampere A100 (40 GB) del cluster Khipu de UTEC.
+El entrenamiento fue hecho en un GPU Nvidia Ampere A100 (40 GB) del cluster Khipu de UTEC con un batch size de 2.
 
 \inputminted[bgcolor=codeBack, tabsize=2]{bash}{train-es.sh}
 
@@ -69,7 +69,7 @@ El dataset del segundo entrenamiento está conformado por 120000 documentos sint
 
 \section{Fine tuning}
 
-El último paso para que Donut pueda resolver preguntas de nuestros documentos escaneados es volverlo a entrenar con el dataset sintético.
+El último paso para que Donut pueda resolver preguntas de nuestros documentos escaneados es volverlo a entrenar con el dataset sintético. Fue hecho en el mismo hardware con la misma configuración excepto el batch size, el cual fue de 4.
 
 \inputminted[bgcolor=codeBack, tabsize=2]{bash}{train-es-finetuned.sh}
 
